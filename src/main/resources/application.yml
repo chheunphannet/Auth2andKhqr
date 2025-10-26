@@ -1,0 +1,16 @@
+#spring.application.name=auth2andkhqr
+#server.port=1223
+#BAKONG_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNmZlNjU1YWE1YTg1NDgzMCJ9LCJpYXQiOjE3NjExMjcwMDgsImV4cCI6MTc2ODkwMzAwOH0.V6H8EqmPkrVZoa28lvGPK7VnJqjUkvVS4cisFCgKYxQ
+#BASE_URL=https://api-bakong.nbc.gov.kh/v1
+bakong:
+  api:
+    base-url: https://api-bakong.nbc.gov.kh
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNmZlNjU1YWE1YTg1NDgzMCJ9LCJpYXQiOjE3NjExMjcwMDgsImV4cCI6MTc2ODkwMzAwOH0.V6H8EqmPkrVZoa28lvGPK7VnJqjUkvVS4cisFCgKYxQ
+
+spring:
+  application:
+    name: bakong-integration
+
+logging:
+  level:
+    '[com.kh.auth2andkhqr.KHQR]': DEBUG

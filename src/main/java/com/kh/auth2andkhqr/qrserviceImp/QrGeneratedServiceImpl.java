@@ -1,14 +1,13 @@
 package com.kh.auth2andkhqr.qrserviceImp;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.kh.auth2andkhqr.dto.IndividualInfoDTO;
 import com.kh.auth2andkhqr.qrservice.QrGeneratedService;
 
-import jakarta.annotation.PostConstruct;
 import kh.org.nbc.bakong_khqr.BakongKHQR;
+import kh.org.nbc.bakong_khqr.model.CRCValidation;
 import kh.org.nbc.bakong_khqr.model.IndividualInfo;
 import kh.org.nbc.bakong_khqr.model.KHQRCurrency;
 import kh.org.nbc.bakong_khqr.model.KHQRData;
@@ -16,14 +15,6 @@ import kh.org.nbc.bakong_khqr.model.KHQRResponse;
 
 @Service
 public class QrGeneratedServiceImpl implements QrGeneratedService{
-	
-	@Value("${BAKONG_TOKEN}")
-	private String token;
-	
-	@PostConstruct
-	private String getBakongToken() {
-		return this.token;
-	}
 	
 	@Override
 	public KHQRResponse<KHQRData> createQr(IndividualInfoDTO dto) {
@@ -62,6 +53,11 @@ public class QrGeneratedServiceImpl implements QrGeneratedService{
 			currency = KHQRCurrency.USD;
 		}
 		return currency;
+	}
+
+	@Override
+	public KHQRResponse<CRCValidation> validKHQR(String qr) {
+		return BakongKHQR.verify(qr);
 	}
 	
 }
